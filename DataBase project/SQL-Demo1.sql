@@ -35,12 +35,12 @@ values (10,30508,'IS','male','AymanAhmed2020',5,'Ayman','Mohamed','Ahmed');
 create table Team_Project(
     T_ID number(10) primary key,
     T_NumOfStud number(2) NOT NULL,
-    T_Name varchar2(10) NOT NULL,
+    T_Name varchar2(20) NOT NULL,
     T_LeaderID number(10) NOT NULL,
     Pro_ID number(10) NOT NULL,
-    Pro_Name varchar2(10)NOT NULL,
-    Pro_Description varchar2(10),
-    Pro_Field varchar2(10),
+    Pro_Name varchar2(30)NOT NULL,
+    Pro_Description varchar2(250),
+    Pro_Field varchar2(15),
     SU_ID number(10) not null
     )
 /*Insert Statment*/
