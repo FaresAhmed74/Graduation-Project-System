@@ -1,7 +1,7 @@
 --Student Table
 Create Table STUDENT
 (
-    S_ID number(6) primary key,
+    S_ID number(6) PRIMARY KEY,
     S_SSN number(10) not null,
     S_DEPARTMENT varchar2(10) not null,
     S_SEX varchar2(10),
@@ -33,11 +33,11 @@ values (10,30508,'IS','male','AymanAhmed2020',5,'Ayman','Mohamed','Ahmed');
 
 /* Team_Project table*/
 create table Team_Project(
-    T_ID number(10) primary key,
+    T_ID number(10) PRIMARY KEY,
     T_NumOfStud number(2) NOT NULL,
     T_Name varchar2(20) NOT NULL,
     T_LeaderID number(10) NOT NULL,
-    Pro_ID number(10) NOT NULL,
+    Pro_ID number(10) NOT NULL UNIQUE,
     Pro_Name varchar2(30)NOT NULL,
     Pro_Description varchar2(250),
     Pro_Field varchar2(15),
@@ -65,7 +65,7 @@ create table Contest
 (
     C_Name varchar2(30) not null,
     Pro_ID number(10) not null,
-    primary key (C_Name,Pro_ID),
+    PRIMARY KEY (C_Name),
     C_field varchar2(30) not null, -- i have to increase the size of this var 
     C_Region varchar2(15)
 )
@@ -86,11 +86,11 @@ Insert Into Contest (C_name,Pro_ID,c_field,c_region)
 values ('DataHack',216,'AI','Global');
 
 -- Sponsor Table
-create table Sponsor
+create table SPONSOR
 (
-    Spon_Name varchar2(20),
-    Pro_ID number(10),
-    primary key (Spon_Name,Pro_ID)
+    SPON_NAME varchar2(20) NOT NULL UNIQUE,
+    Pro_ID number(10) NOT NULL UNIQUE,
+    PRIMARY KEY (Spon_Name,Pro_ID)
 )
 /*Insert statment*/
 Insert Into Sponsor( Spon_Name,Pro_ID)
@@ -106,11 +106,11 @@ Insert Into Sponsor( Spon_Name,Pro_ID)
 values ('H2O.ai', 217 );
 
 --Contact Table
-create table  Contact
+create table CONTACT
 (
-    P_ID number(3) ,
-    SU_ID number(10),
-    primary key(P_ID,SU_ID)
+    P_ID number(3) NOT NULL,
+    SU_ID number(10) NOT NULL,
+    PRIMARY KEY (P_ID,SU_ID)
 )
 --Insert statment
 Insert into Contact (P_ID,SU_ID)
@@ -131,7 +131,7 @@ values(102,10004);
 -- professor table
 create table Professor
 (
-    P_ID number(3) primary key,
+    P_ID number(3) PRIMARY KEY,
     P_SSN number(10) not null,
     P_DEPARTMENT varchar2(10) not null,
     P_SEX varchar2(10),
@@ -160,7 +160,7 @@ values (104,10904,'AI','Male','AhmedAli24','Ahmed','Ali','Ahmed');
 --SuperVisors table
 Create Table SUPERVISOR
 (
-    SU_ID number(10) primary key,
+    SU_ID number(10) PRIMARY KEY,
     SU_SSN number(10) not null,
     SU_DEPARTMENT varchar2(10) not null,
     SU_SEX varchar2(10),
@@ -189,8 +189,8 @@ values ( 10005,20304,'AI','female','HaninLotfy98','Hanin','Lotfy','Alaa' );
 --Discuss Table
 create table Discuss
 (
-    Pro_ID number(10),
-    P_ID number(3),
+    Pro_ID number(10) NOT NULL,
+    P_ID number(3) NOT NULL,
     PRIMARY KEY (Pro_ID,P_ID)
 )
 --insert 
@@ -210,10 +210,10 @@ Insert into Discuss(Pro_ID,P_ID)
 values(216,102);
 
 --S_Phone
-create table Std_Phone
+create table STD_PHONE
 (
-    S_Phone varchar2(15),
-    S_ID number(6),
+    S_Phone varchar2(15) NOT NULL,
+    S_ID number(6) NOT NULL,
     PRIMARY KEY (S_Phone,S_ID)
 )
 --insert
@@ -235,8 +235,8 @@ values('01155539509',5);
 --SU Phone
 create table SU_Phone
 (
-    SU_Phone varchar2(15),
-    SU_ID number(10),
+    SU_Phone varchar2(15) NOT NULL,
+    SU_ID number(10) NOT NULL,
     PRIMARY KEY (SU_Phone,SU_ID)
 )
 --insert
@@ -259,8 +259,8 @@ values('011535349509',10003);
 -- PROFESSOR PHONE
 create table P_Phone
 (
-    P_Phone varchar2(15),
-    P_ID number(3),
+    P_Phone varchar2(15) NOT NULL,
+    P_ID number(3) NOT NULL,
     PRIMARY KEY (P_Phone,P_ID)
 )
 --INSERT
@@ -283,8 +283,8 @@ values('012345543509',104);
 -- sponsor address
 create table Sponsor_address
 (
-    spon_name varchar2(20),
-    Pro_ID number(10),
+    spon_name varchar2(20) NOT NULL,
+    Pro_ID number(10) NOT NULL,
     spon_address varchar2(25),
     PRIMARY KEY (Spon_name,Pro_ID,Spon_address)
 )
@@ -302,35 +302,34 @@ insert into sponsor_address (spon_name,pro_id,spon_address)
 values ('H2O.ai',217,'Heliopolis' );
 
 --join table
-create table JOIN
+create table JOINE
 (
-    pro_id number(10),
-    c_name varchar2(30),
-    primary key (pro_id,c_name) 
+    pro_id number(10) NOT NULL,
+    c_name varchar2(30) NOT NULL,
+    PRIMARY KEY (pro_id,c_name) 
 )
 --insert
-insert into join(pro_id,c_name)
+insert into joinE(pro_id,c_name)
 values(213,'DataHack');
 
-insert into join(pro_id,c_name)
+insert into joinE(pro_id,c_name)
 values(214,'Cairo ICT');
 
-insert into join(pro_id,c_name)
+insert into joinE(pro_id,c_name)
 values(215,'Hackathon');
 
-insert into join(pro_id,c_name)
-values(216,'DataHack ');
+insert into joinE(pro_id,c_name)
+values(216,'DataHack');
 
-insert into join(pro_id,c_name)
+insert into joinE(pro_id,c_name)
 values(217,'Egypt IoT');
 
-
 --Win
-create table win
+create table WIN
 (
-    pro_id number(10),
-    c_name varchar2(30),
-    primary key (pro_id,c_name) 
+    pro_id number(10) NOT NULL,
+    c_name varchar2(30) NOT NULL UNIQUE,
+    PRIMARY KEY (PRO_ID,C_NAME)
 )
 --insert
 insert into win(pro_id,c_name)
@@ -340,16 +339,65 @@ insert into win(pro_id,c_name)
 values(214,'Cairo ICT');
 
 --Sposnor Rel
-create table sponsor_rel
+create table SPONSOR_REL
 (
-    spon_name varchar2(20),
-    pro_id number(10),
-    amount varchar2(10),
-    primary key(spon_name,pro_id)
+    spon_name varchar2(20) NOT NULL,
+    pro_id number(10) NOT NULL,
+    amount varchar2(10)
 )
 insert into sponsor_rel(spon_name,pro_id,amount)
 values('Sisu Data',215,'30k');
 
+-- Insert Foreign Keys
+ALTER TABLE STUDENT
+ADD FOREIGN KEY (T_ID) REFERENCES TEAM_PROJECT(T_ID);
+
+ALTER TABLE TEAM_PROJECT
+ADD FOREIGN KEY (SU_ID) REFERENCES SUPERVISOR (SU_ID);
+
+ALTER TABLE CONTEST
+ADD FOREIGN KEY (PRO_ID) REFERENCES TEAM_PROJECT (PRO_ID);
+
+ALTER TABLE SPONSOR
+ADD FOREIGN KEY (PRO_ID) REFERENCES TEAM_PROJECT (PRO_ID);
+
+ALTER TABLE SPONSOR_REL
+ADD FOREIGN KEY (SPON_NAME) REFERENCES SPONSOR (SPON_NAME);
+ALTER TABLE SPONSOR_REL
+ADD FOREIGN KEY (PRO_ID) REFERENCES TEAM_PROJECT (PRO_ID);
+
+ALTER TABLE CONTACT
+ADD FOREIGN KEY (P_ID) REFERENCES PROFESSOR (P_ID);
+
+ALTER TABLE DISCUSS
+ADD FOREIGN KEY (PRO_ID) REFERENCES TEAM_PROJECT (PRO_ID);
+ALTER TABLE DISCUSS
+ADD FOREIGN KEY (P_ID) REFERENCES PROFESSOR (P_ID);
+
+ALTER TABLE STD_PHONE
+ADD FOREIGN KEY (S_ID) REFERENCES STUDENT (S_ID);
+
+ALTER TABLE SU_PHONE
+ADD FOREIGN KEY (SU_ID) REFERENCES SUPERVISOR (SU_ID);
+
+ALTER TABLE P_PHONE
+ADD FOREIGN KEY (P_ID) REFERENCES PROFESSOR (P_ID);
+
+ALTER TABLE SPONSOR_ADDRESS
+ADD FOREIGN KEY (PRO_ID) REFERENCES TEAM_PROJECT (PRO_ID);
+--ALTER TABLE SPONSOR_ADDRESS
+--ADD FOREIGN KEY (SPON_NAME) REFERENCES SPONSOR (SPON_NAME);
+
+ALTER TABLE JOINE
+ADD FOREIGN KEY (PRO_ID) REFERENCES TEAM_PROJECT (PRO_ID);
+ALTER TABLE JOINE
+ADD FOREIGN KEY (C_NAME) REFERENCES CONTEST (C_NAME);
+
+ALTER TABLE WIN
+ADD FOREIGN KEY (PRO_ID) REFERENCES TEAM_PROJECT(PRO_ID);
+ALTER TABLE WIN
+ADD FOREIGN KEY (C_NAME) REFERENCES CONTEST (C_NAME);
+
 
 select * 
-from sponsor_rel;
+from SPONSER_REL;
