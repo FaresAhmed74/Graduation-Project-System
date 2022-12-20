@@ -9,26 +9,27 @@ Create Table STUDENT
     T_ID NUMBER(6) NOT NULL,
     S_FNAME varchar2(10) not null,
     S_LNAME varchar2(10),
-    S_MNAME varchar2(10)
+    S_MNAME varchar2(10),
+    SPONSORED number(1) default 0
 )
 --insert
-Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME)
-values (1,30204,'CS','male','faresahmed9',1,'fares','Ahmed','Desouky');
+Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME,SPONSORED)
+values (1,30204,'CS','male','faresahmed9',1,'fares','Ahmed','Desouky',0);
 --2nd
-Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME)
-values (2,30203,'CS','male','amrkhaled7',1,'Amr','Khaled','Abobakr');
+Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME,SPONSORED)
+values (2,30203,'CS','male','amrkhaled7',1,'Amr','Khaled','Abobakr',0);
 --3rd
-Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME)
-values (3,30200,'CS','male','mohamedes5',1,'Mohamed','Fahmy','Essam');
+Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME,SPONSORED)
+values (3,30200,'CS','male','mohamedes5',1,'Mohamed','Fahmy','Essam',0);
 --4th
-Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME)
-values (4,30207,'CS','male','HamedReda45',1,'Hamed','Reda','Saad');
+Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME,SPONSORED)
+values (4,30207,'CS','male','HamedReda45',1,'Hamed','Reda','Saad',0);
 --5th
-Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME)
-values (5,30208,'CS','male','AhmedHaitham66',1,'Ahmed','Haitham','Ahmed');
+Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME,SPONSORED)
+values (5,30208,'CS','male','AhmedHaitham66',1,'Ahmed','Haitham','Ahmed',0);
 
-Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME)
-values (10,30508,'IS','male','AymanAhmed2020',5,'Ayman','Mohamed','Ahmed');
+Insert into STUDENT(S_ID,S_SSN,S_DEPARTMENT,S_SEX,S_EMAIL,T_ID,S_FNAME,S_LNAME,S_MNAME,SPONSORED)
+values (10,30508,'IS','male','AymanAhmed2020',5,'Ayman','Mohamed','Ahmed',0);
 
 
 /* Team_Project table*/
