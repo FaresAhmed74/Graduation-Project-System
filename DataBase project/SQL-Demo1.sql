@@ -65,7 +65,7 @@ create table Contest
 (
     C_Name varchar2(30) not null,
     Pro_ID number(10) not null,
-    PRIMARY KEY (C_Name),
+    PRIMARY KEY (C_Name,PRO_ID),
     C_field varchar2(30) not null, -- i have to increase the size of this var 
     C_Region varchar2(15)
 )
